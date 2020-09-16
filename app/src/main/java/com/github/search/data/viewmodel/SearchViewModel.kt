@@ -43,7 +43,7 @@ class SearchViewModel(private val preferencesManager: PreferencesManager, privat
         }
     }
 
-    private fun requestSearch(isLoadMore: Boolean = false, keyword: String = "", href: String = "") = launch {
+    fun requestSearch(isLoadMore: Boolean = false, keyword: String = "", href: String = "") = launch {
         if (keyword.isBlank() && href.isBlank()) return@launch
         if (isLoadMore) {
             when (val result = searchRepository.requestSearchMore(href)) {
